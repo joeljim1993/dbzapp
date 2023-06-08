@@ -11,6 +11,8 @@ export class AddCharacterComponent {
 
   //manera cmo se maneja el output
   @Output()
+  // manera cmo se genera la emision del evento
+  
   public onNewCharacter :EventEmitter<Character> = new EventEmitter();
 
   public character:Character ={

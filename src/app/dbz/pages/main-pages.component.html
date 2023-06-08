@@ -3,7 +3,10 @@
 
 <div class="row">
   <div class="col">
-    <dbz-list [characterList]="characters"></dbz-list>
+    <!-- onDelete  -->
+    <dbz-list [characterList]="characters"
+    (onDelete)="onDeleteCharacter($event)"
+    ></dbz-list>
     <!-- manera como se recibe el evento () por que es un evento y la funcion recibe un observable de tipo ($event) -->
     <dbz-add-character (onNewCharacter)="onNewCharacter($event)"></dbz-add-character>
 

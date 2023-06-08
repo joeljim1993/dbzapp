@@ -31,4 +31,12 @@ export class MainPagesComponent {
 
   }
 
+ onDeleteCharacter(index:number):void{
+  console.log("index desde el main page ");
+  this.characters.splice(index);
+
+
+
+ }
+
 }

@@ -1,4 +1,4 @@
-import { Component,Input } from '@angular/core';
+import { Component,EventEmitter,Input, Output } from '@angular/core';
 import { Character } from '../../interfaces/character.interface';
 
 @Component({
@@ -8,6 +8,9 @@ import { Character } from '../../interfaces/character.interface';
 })
 export class ListComponent {
 
+  // public onNewCharacter :EventEmitter<Character> = new EventEmitter();
+
+  public idDeleteCharacter:EventEmitter<number> = new EventEmitter();
 
   @Input()
   public characterList:Character[]=[{
@@ -15,4 +18,18 @@ export class ListComponent {
     power:10
   }];
 
+  // TODO: emitir iD del personaje
+  // de esta manera yo envio informacion hacia afuera , el padre
+  // se usa la directiva @output
+  @Output()
+  // se crea una instancia del evento
+  onDelete:EventEmitter<number> = new EventEmitter();
+
+    onDeleteCharacter(index:number):void{
+    console.log(index);
+      this.onDelete.emit( index   );
+
+  }
+
+  // onDeleteId evento emite el index
 }
