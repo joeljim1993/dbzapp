@@ -18,16 +18,18 @@ export class ListComponent {
     power:10
   }];
 
+
   // TODO: emitir iD del personaje
   // de esta manera yo envio informacion hacia afuera , el padre
   // se usa la directiva @output
   @Output()
   // se crea una instancia del evento
-  onDelete:EventEmitter<number> = new EventEmitter();
+  onDelete:EventEmitter<string> = new EventEmitter();
 
-    onDeleteCharacter(index:number):void{
-    console.log(index);
-      this.onDelete.emit( index   );
+    onDeleteCharacter(id?:string):void{
+    console.log(id);
+    if(!id) return;
+      this.onDelete.emit( id );
 
   }
 
